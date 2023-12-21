@@ -1,0 +1,20 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: "ms-registro-usuario"
+  devtools:
+    add-properties: false
+  h2:
+    console:
+      enabled: true
+      path: "/h2"
+  profiles:
+    include: null
+  data:
+    mongodb:
+      uri: "mongodb://localhost:27017/triada"
+adapter:
+  restconsumer:
+    timeout: 5000
+    url: "https://api-interop-devazure.azure-api.net/apihomologacion/v1/homologacion/"

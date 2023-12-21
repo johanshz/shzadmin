@@ -1,0 +1,42 @@
+replicaCount: 1
+
+image:
+  repository: crinteropdesazure.azurecr.io/interop-dev-parametrization:1.0.3
+  pullPolicy: Always
+
+service:
+  type: NodePort
+  port: 80
+
+spring:
+  application:
+    name: "ms-registro-usuario"
+  devtools:
+    add-properties: false
+  h2:
+    console:
+      enabled: true
+      path: "/h2"
+  profiles:
+    include: null
+  data:
+    mongodb:
+      uri: "mongodb://cdbinteropdesazure:PX2zbiCE13pT32BwK5Ghvx8R5WPYnjLPZrCmxPKG0HHSvR00u1KjmnOk28vKZvhWUt9gYDbTnPp1StudcQLdKw==@cdbinteropdesazure.mongo.cosmos.azure.com:10255/replicationMetamodel?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=cdbinteropdesazure"
+
+adapter:
+  restconsumer:
+    timeout: 5000
+    url: "https://api-interop-devazure.azure-api.net/apihomologacion/v1/homologacion/"
+
+#ingress:
+#  enabled: true
+#  annotations: {}
+#    # kubernetes.io/ingress.class: nginx ##
+#  hosts:
+#    - host: jmscontroller.interop.desaws.compensar.co # Cambiar aqui el host de la api ingress de aws
+#      paths:
+#        - "/reports"
+#  tls: []
+  
+autoscaling:
+  enabled: false
