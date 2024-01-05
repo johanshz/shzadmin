@@ -72,9 +72,21 @@ public class FacturaUseCase implements FactoryObjects {
                 .map(idCompra -> idCompra);
     }
     private Mono<Integer> getIdCompraSiguiente(List<Factura> cotizaciones){
-        return Mono.just(cotizaciones.size())
+        //hacer pruebas borrando todas las cotizaciones
+        return Mono.just(cotizaciones.isEmpty() ? 0 : cotizaciones.get(cotizaciones.size() - 1).getIdCompra() )
                 //.map(cotizaciones::get)
                 .map(cantidadCotizacion -> cantidadCotizacion + 1);
 
     }
+    public Mono<Response<Object>> getCotizacion(String idCompra){
+        return getFacturaDB(Integer.parseInt(idCompra))
+                .flatMap(facturaDB -> Mono.just(Response.builder()
+                        .results(facturaDB)
+                        .build()))
+               .switchIfEmpty(Mono.defer(()-> Mono.error(new RuntimeException("no existe cotizacion"))))
+               .onErrorResume(error -> Mono.just(Response.builder()
+                        .description(error.getMessage())
+                        .build()));
+    }
+
 }

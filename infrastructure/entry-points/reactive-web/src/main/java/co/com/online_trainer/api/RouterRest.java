@@ -23,6 +23,7 @@ public class RouterRest {
                 .andRoute(GET("/deleteProducto"),handler::deleteProducto)
                 .andRoute(GET("/getProductoId"),handler::getProductoById)
                 .andRoute(POST("/cotizar"),handler::saveFactura)
+                .andRoute(GET("/getCotizacion"),handler::getCotizacion)
                 .andRoute(POST("/realizarCompra"),handler::realizarCompra)
                 .andRoute(POST("/login"),handler::login)
                 .andRoute(POST("/saveProveedor"),handler::saveProveedor)

@@ -82,6 +82,15 @@ public class Handler {
                 .flatMap(response -> ServerResponse.ok().body(Mono.just(response),Response.class));
 
     }
+    public Mono<ServerResponse> getCotizacion(ServerRequest serverRequest){
+        return serverRequest.queryParam("idCompra")
+                .map(facturaUseCase::getCotizacion)
+                .orElse(Mono.just(Response.builder()
+                        .description("parametros invalidos")
+                        .build()))
+                .flatMap(response -> ServerResponse.ok().body(Mono.just(response),Response.class));
+
+    }
     public Mono<ServerResponse> getProductos(ServerRequest serverRequest){
         return productUseCase.getProductos()
                 .flatMap(response -> ServerResponse.ok().body(Mono.just(response),Response.class));
