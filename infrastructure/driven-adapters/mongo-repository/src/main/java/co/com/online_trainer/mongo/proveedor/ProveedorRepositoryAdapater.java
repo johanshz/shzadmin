@@ -16,7 +16,6 @@ public class ProveedorRepositoryAdapater extends AdapterOperations<Proveedor,Pro
         super(repository,mapper,d->mapper.map(d, Proveedor.class));
     }
 
-
     @Override
     public Mono<Proveedor> findByNombre(String nombre) {
         return repository.findByNombre(nombre);

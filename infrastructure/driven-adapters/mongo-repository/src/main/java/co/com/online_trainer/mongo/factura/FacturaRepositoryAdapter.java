@@ -20,4 +20,14 @@ public class FacturaRepositoryAdapter extends AdapterOperations<Factura,FacturaD
     public Mono<Factura> findByIdCompra(Integer idCompra) {
         return repository.findByIdCompra(idCompra);
     }
+
+    @Override
+    public Mono<Factura> findByIdenficacion(String identificacion) {
+        return repository.findByIdentificacion(identificacion);
+    }
+
+    @Override
+    public Mono<Factura> findByTelefono(Long telefono) {
+        return repository.findByTelefono(telefono);
+    }
 }

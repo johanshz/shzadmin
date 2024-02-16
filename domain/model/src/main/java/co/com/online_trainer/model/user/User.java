@@ -16,5 +16,6 @@ public class User {
     private String correo;
     private String password;
     private String token;
+    private String usuario;
 
 }

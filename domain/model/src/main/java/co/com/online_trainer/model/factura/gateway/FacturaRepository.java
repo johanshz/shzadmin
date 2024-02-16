@@ -8,5 +8,7 @@ public interface FacturaRepository {
     Mono<Factura> save(Factura factura);
 
     Mono<Factura> findByIdCompra(Integer idCompra);
+    Mono<Factura> findByIdenficacion(String identificacion);
+    Mono<Factura> findByTelefono(Long telefono);
     Flux<Factura> findAll();
 }

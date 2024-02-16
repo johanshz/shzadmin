@@ -1,5 +1,6 @@
 package co.com.online_trainer.mongo.user;
 
+import co.com.online_trainer.model.registro.Request;
 import co.com.online_trainer.model.user.User;
 import co.com.online_trainer.model.user.gateway.UserRepository;
 import co.com.online_trainer.mongo.helper.AdapterOperations;
@@ -19,5 +20,10 @@ public class UsuariosRepositoryAdapter extends AdapterOperations<User,UsuariosDa
     @Override
     public Mono<User> findByCorreo(String correo) {
         return repository.findByCorreo(correo);
+    }
+
+    @Override
+    public Mono<Request> findByUsuario(String usuario) {
+        return repository.findByUsuario(usuario);
     }
 }

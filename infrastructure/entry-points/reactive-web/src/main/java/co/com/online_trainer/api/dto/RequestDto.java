@@ -11,4 +11,5 @@ public class RequestDto {
     private String nombre;
     private String correo;
     private String password;
+    private String usuario;
 }

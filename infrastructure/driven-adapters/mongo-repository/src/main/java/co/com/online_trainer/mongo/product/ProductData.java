@@ -38,4 +38,7 @@ public class ProductData {
     private Integer existencias;
     private Integer entradas;
     private Integer salidas;
+    private Integer valorDescuento;
+    private Integer cantidadAnterior; //agregar en el resto del flujo
+    private Double valorPrecioTotalAnterior;//agregar en el resto del flujo
 }
