@@ -1,6 +1,9 @@
 apply plugin: 'org.springframework.boot'
 
 dependencies {
+	implementation project( ':carga-archivos')
+	implementation project( ':upload')
+	implementation project( ':apache-pdf')
 	implementation project( ':mongo-repository')
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	implementation project( ':reactive-web')
@@ -13,6 +16,8 @@ dependencies {
 
     implementation ("org.springframework.boot:spring-boot-starter-amqp")
     implementation 'org.springframework.security:spring-security-crypto'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
 
 }
 
